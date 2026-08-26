@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AutoVerse | Checkout</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><div class="logo">AUTOVERSE</div><nav><a href="index.html">Home</a><a href="about.html">About Us</a><a href="products.html">Products</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></nav></header>
+<section class="page-title"><div class="eyebrow">AutoVerse</div><h1>Vehicle Checkout</h1><p>Submit your vehicle request.</p></section>
+<section class="checkout-container"><form class="checkout-form" onsubmit="submitOrder(event)">
+<h2>Customer Information</h2>
+<label for="name">Full Name</label><input type="text" id="name" required>
+<label for="email">Email Address</label><input type="email" id="email" required>
+<label for="phone">Phone Number</label><input type="tel" id="phone" required>
+<label for="address">Address</label><textarea id="address" rows="4" required></textarea>
+<h2>Vehicle Information</h2>
+<label for="vehicle">Vehicle</label>
+<select id="vehicle" required><option value="">Select a vehicle</option>
+<optgroup label="Toyota"><option>Toyota Camry</option><option>Toyota SUV</option></optgroup>
+<optgroup label="Honda"><option>Honda Civic</option><option>Honda CR-V</option></optgroup>
+<optgroup label="Ford"><option>Ford Mustang</option><option>Ford Ranger</option></optgroup>
+<optgroup label="BMW"><option>BMW 3 Series</option><option>BMW M4</option></optgroup>
+<optgroup label="Mercedes-Benz"><option>Mercedes-Benz C-Class</option><option>Mercedes-Benz GLE</option></optgroup>
+<optgroup label="Porsche"><option>Porsche 911</option><option>Porsche Cayenne</option></optgroup>
+</select>
+<label for="payment">Payment Method</label><select id="payment" required><option value="">Select payment method</option><option>Cash</option><option>Bank Financing</option><option>Installment</option></select>
+<label for="message">Additional Message</label><textarea id="message" rows="4"></textarea>
+<button type="submit" class="button">Submit Request</button>
+</form></section>
+<footer><p>&copy; 2026 AutoVerse. <span>Drive with confidence.</span></p></footer>
+<script>
+function submitOrder(event){event.preventDefault();alert("Thank you! Your vehicle request has been submitted.");document.querySelector(".checkout-form").reset();}
+</script>
+</body></html>
