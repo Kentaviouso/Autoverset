@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoVerse | Home</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">AUTOVERSE</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="products.html">Products</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="car-slider">
+  <div class="slides-track">
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85" alt="Sports car">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="eyebrow">01 / PERFORMANCE</div>
+        <h1>FIND YOUR PERFECT DRIVE</h1>
+        <p>Discover performance, design, and technology in one automotive collection.</p>
+        <a href="products.html" class="button">Explore Cars</a>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1800&q=85" alt="Luxury car">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="eyebrow">02 / STYLE</div>
+        <h1>DESIGNED TO STAND OUT</h1>
+        <p>Browse vehicles made for drivers who value bold design and modern style.</p>
+        <a href="gallery.html" class="button">View Gallery</a>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?auto=format&fit=crop&w=1800&q=85" alt="Premium vehicle">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="eyebrow">03 / PREMIUM</div>
+        <h1>YOUR NEXT JOURNEY STARTS HERE</h1>
+        <p>Explore different brands and find a vehicle for your next adventure.</p>
+        <a href="products.html" class="button">Shop Products</a>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=1800&q=85" alt="Red sports car">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="eyebrow">04 / POWER</div>
+        <h1>BUILT FOR THE OPEN ROAD</h1>
+        <p>Explore cars that combine striking looks with an exciting driving experience.</p>
+        <a href="products.html" class="button">See Products</a>
+      </div>
+    </div>
+
+    <div class="slide">
+      <img src="https://images.unsplash.com/photo-1504215680853-026ed2a45def?auto=format&fit=crop&w=1800&q=85" alt="Black sports car">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="eyebrow">05 / AUTOMOTIVE</div>
+        <h1>MAKE EVERY DRIVE COUNT</h1>
+        <p>Find your next favorite vehicle with AutoVerse.</p>
+        <a href="contact.html" class="button">Contact Us</a>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="slider-arrow prev" onclick="changeSlide(-1)" aria-label="Previous photo">&#10094;</button>
+  <button class="slider-arrow next" onclick="changeSlide(1)" aria-label="Next photo">&#10095;</button>
+
+  <div class="slider-dots">
+    <button class="dot active" onclick="showSlide(0)" aria-label="Photo 1"></button>
+    <button class="dot" onclick="showSlide(1)" aria-label="Photo 2"></button>
+    <button class="dot" onclick="showSlide(2)" aria-label="Photo 3"></button>
+    <button class="dot" onclick="showSlide(3)" aria-label="Photo 4"></button>
+    <button class="dot" onclick="showSlide(4)" aria-label="Photo 5"></button>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="eyebrow">The AutoVerse Difference</div>
+  <h2>Built Around Your Drive</h2>
+  <p class="center-text">AutoVerse is an automotive dealership website where you can explore different vehicle brands, browse our gallery, and request a vehicle.</p>
+
+  <div class="features">
+    <div class="feature"><h3>Multiple Brands</h3><p>Explore vehicles from several popular automotive brands.</p></div>
+    <div class="feature"><h3>Wide Selection</h3><p>Choose from sports cars, sedans, SUVs, and more.</p></div>
+    <div class="feature"><h3>Easy Checkout</h3><p>Submit a vehicle request through our simple checkout form.</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 AutoVerse. <span>Drive with confidence.</span></p>
+</footer>
+
+<script>
+let currentSlide = 0;
+const track = document.querySelector(".slides-track");
+const slides = document.querySelectorAll(".slide");
+const dots = document.querySelectorAll(".dot");
+let autoSlide;
+
+function showSlide(index) {
+  currentSlide = (index + slides.length) % slides.length;
+  track.style.transform = "translateX(-" + (currentSlide * 100) + "%)";
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentSlide);
+  });
+
+  resetAutoSlide();
+}
+
+function changeSlide(direction) {
+  showSlide(currentSlide + direction);
+}
+
+function resetAutoSlide() {
+  clearInterval(autoSlide);
+  autoSlide = setInterval(() => {
+    showSlide(currentSlide + 1);
+  }, 5000);
+}
+
+resetAutoSlide();
+</script>
+
+</body>
+</html>
